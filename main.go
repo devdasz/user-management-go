@@ -121,8 +121,8 @@ func main() {
 	r.HandleFunc("/v1/users", getUsers).Methods("GET")
 	r.HandleFunc("/v1/users/{id}", getUserById).Methods("GET")
 	r.HandleFunc("/v1/users", createUser).Methods("POST")
-	r.HandleFunc("/v1/users", updateUser).Methods("PUT")
-	r.HandleFunc("/v1/users", deleteUser).Methods("DELETE")
+	r.HandleFunc("/v1/users/{id}", updateUser).Methods("PUT")
+	r.HandleFunc("/v1/users/{id}", deleteUser).Methods("DELETE")
 
 	fmt.Printf("Starting server at port 8000\n")
 	log.Fatal(http.ListenAndServe(":8000", r))
